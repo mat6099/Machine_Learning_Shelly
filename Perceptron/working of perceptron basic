@@ -1,0 +1,19 @@
+import numpy as np
+X = np.array([(3,3),(2,4),(5,5),(6,6),(6,1),(2,1)])
+Y = np.array([1,1,1,1,0,0])
+w = np.array([0.01,0.02])
+b = 1
+eta = 0.1
+
+for epoch in range(100):
+    net_error = 0
+    for i in range(len(X)):
+        z = np.dot(X[i],w) + b
+        pred = 1 if z>=0 else 0
+        error = Y[i]-pred
+        net_error += abs(error)
+
+        w+= eta* error *X[i]
+        b+= eta * error
+    print("epoch:", epoch, ",weights:", w, ",bias:", b, "error:", net_error)
+print("\n Final weights:",w, "Final bias:", b)
