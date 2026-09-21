@@ -21,7 +21,7 @@ x2 = X[:, 1]
 # Calculate squared distance of each point from the origin
 distance_squared = x1**2 + x2**2
 
-# Assign class labels
+
 # Inside the circle: class 0
 # Outside the circle: class 1
 y = np.where(distance_squared <= radius**2, 0, 1)
