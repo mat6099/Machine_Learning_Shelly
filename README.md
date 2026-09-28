@@ -42,20 +42,20 @@
 ### Logit
 - The logit is the natural logarithm of the odds:
 
-  $$\operatorname{logit}(p)
+  $$logit(p)
   = \log\left(\frac{p}{1-p}\right)$$
 
 - The logit function transforms probability values in the range $(0,1)$ into values over the entire real-number range $(-\infty,\infty)$.
 
 - In Logistic Regression, we assume a linear relationship between the log-odds and the net input:
 
-  $$\operatorname{logit}(p)=\mathbf{w}^T\mathbf{x}+b$$
+  $$logit(p)=\mathbf{w}^T\mathbf{x}+b$$
 
 ### Logistic Sigmoid Function
 - The inverse of the logit function is called the logistic sigmoid function.
 - It has a characteristic S-shape:
 
-  $$\sigma(z)=\frac{1}{1+\exp(-z)}$$
+  $$\sigma(z)=\frac{1}{1+\e^(-z)}$$
 
 - Here, $z$ is the net input.
 
@@ -71,9 +71,13 @@
 - Logistic Regression has wide applications in the field of medicine. It is also used in weather forecasting.
 - ## Learning the model weight via the Logistic loss function.
 - ### Likelihood
-- Likelihood measures how well the model's current predicted probabilities fit the actual training labels. For example, let (y) be the actual label(0 or 1), and (p) be the predicted probability of class 1. Its likelihood contribution is: $ p^y(1-p)^{1-y} $
-- 1. if (y=1), the contribution is (p).
-  2. if (y=0), the contribution is (1-p).
+- Likelihood measures how well the model's current predicted probabilities fit the actual training labels. For example, let (y) be the actual label(0 or 1), and (p) be the predicted probability of class 1. Its likelihood contribution is:
+- 
+   $$
+-  p^y(1-p)^{1-y}
+   $$
+  - if (y=1), the contribution is (p).
+  - if (y=0), the contribution is (1-p).
 - So the contribution is the probability the model is assigned to the correct class.
 - 
 - 
