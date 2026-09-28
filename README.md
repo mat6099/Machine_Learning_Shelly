@@ -27,14 +27,23 @@
 - ### Logit:
 - It is simply the natural logarithm of the odds. $$logit(p) = \log \frac{p}{(1-p)} $$. The logit function takes the input values in the range 0 to 1 and transforms them into values over the entire real number range.
 - ### Logistic sigmoid function:
-- This inverse of the logit function is called logistic sigmoid function, which is called sigmoid function due to its characteristic S shape. It is defined as: $$ \sigma(z) = \frac{1}{1+\exp(-z)} $$ where, z is the net input . This sigmoid function takes real number values as input and transforms them into values in the range $[0, 1]$ with an intercept at $\sigma(0) = 0.5 $. This function acts as the activation function for Logistic Regression.
-- The predicted probability can then simply be converted into a binary outcome via a threshold function  \[
+- This inverse of the logit function is called logistic sigmoid function, which is called sigmoid function due to its characteristic S shape. It is defined as:
+ $$
+\sigma(z) = \frac{1}{1+\exp(-z)}
+$$
+where, z is the net input . This sigmoid function takes real number values as input and transforms them into values in the range [0, 1] with an intercept at
+$
+\sigma(0) = 0.5
+$.
+This function acts as the activation function for Logistic Regression.
+- The predicted probability can then simply be converted into a binary outcome via a threshold function
+$$
 \hat{y} =
 \begin{cases}
 1, & \text{if } z \geq 0,\\
 0, & \text{if } z < 0.
 \end{cases}
-\] 
+$$
 - The sigmoid outputs a probability; the threshold converts it to a binary class prediction.
 - Logistic Regression has wide applications in the field of medicine. It is also used in weather forecasting.
 - ## Learning the model weight via the Logistic loss function.
