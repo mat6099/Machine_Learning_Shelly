@@ -18,33 +18,56 @@
 - After that we train and evaluate a perceptron. fit() trains the model using features and their correct labels.
 - In the end , we use the model to predict labels for the test examples and compare predictions with true labels to evaluate performance.
 
-## Modelling class probabilities via Logistic Regression
-- The disadvantage of perceptron is that it never converges if the classes are not perfectly linearly separable.
-- Logistic Regression is a classification model that works well on linearly separable classes.
-- First , the model calculates a score: $$\z = \mathbf{w}^(T) + b $$ where x: input features\\ w : weights learned by the model\\ b: bias
-- ### Odds:
-- Let $p$ be the conditional probability that a particular example belongs to certain class 1 given its features, x. Then we define odds: the odds in favor of a particular event. The odds is defined as $$\frac{p}{(1-p)}$$ where p stands for probability of the positive event.
-- ### Logit:
-- It is simply the natural logarithm of the odds. $$logit(p) = \log \frac{p}{(1-p)} $$. The logit function takes the input values in the range 0 to 1 and transforms them into values over the entire real number range.
-- ### Logistic sigmoid function:
-- This inverse of the logit function is called logistic sigmoid function, which is called sigmoid function due to its characteristic S shape. It is defined as:
- $$
-\sigma(z) = \frac{1}{1+\exp(-z)}
-$$
-where, z is the net input . This sigmoid function takes real number values as input and transforms them into values in the range [0, 1] with an intercept at
-$
-\sigma(0) = 0.5
-$.
-This function acts as the activation function for Logistic Regression.
-- The predicted probability can then simply be converted into a binary outcome via a threshold function
-$$
-\hat{y} =
-\begin{cases}
-1, & \text{if } z \geq 0,\\
-0, & \text{if } z < 0.
-\end{cases}
-$$
-- The sigmoid outputs a probability; the threshold converts it to a binary class prediction.
+## Modelling Class Probabilities via Logistic Regression
+- The disadvantage of the perceptron is that it never converges if the classes are not perfectly linearly separable.
+- Logistic Regression is a classification model that performs very well on linearly separable classes.
+- First, the model calculates a score (net input):
+
+  $$z = \mathbf{w}^T\mathbf{x} + b$$
+
+  where:
+  - $\mathbf{x}$: input features
+  - $\mathbf{w}$: weights learned by the model
+  - $b$: bias
+
+### Odds
+- Let $p$ be the conditional probability that a particular example belongs to class 1 given its features $\mathbf{x}$:
+
+  $$p = P(y=1|\mathbf{x})$$
+
+- The odds in favor of the positive event are:
+
+  $$\frac{p}{1-p}$$
+
+### Logit
+- The logit is the natural logarithm of the odds:
+
+  $$\operatorname{logit}(p)
+  = \log\left(\frac{p}{1-p}\right)$$
+
+- The logit function transforms probability values in the range $(0,1)$ into values over the entire real-number range $(-\infty,\infty)$.
+
+- In Logistic Regression, we assume a linear relationship between the log-odds and the net input:
+
+  $$\operatorname{logit}(p)=\mathbf{w}^T\mathbf{x}+b$$
+
+### Logistic Sigmoid Function
+- The inverse of the logit function is called the logistic sigmoid function.
+- It has a characteristic S-shape:
+
+  $$\sigma(z)=\frac{1}{1+\exp(-z)}$$
+
+- Here, $z$ is the net input.
+
+- The sigmoid function transforms real-number inputs into values in the range $[0,1]$.
+
+- At $z=0$:
+
+  $$\sigma(0)=0.5$$
+
+- The output of the sigmoid function is interpreted as the probability that an example belongs to class 1:
+
+  $$\sigma(z)=P(y=1|\mathbf{x})$$
 - Logistic Regression has wide applications in the field of medicine. It is also used in weather forecasting.
 - ## Learning the model weight via the Logistic loss function.
 - ### Likelihood
