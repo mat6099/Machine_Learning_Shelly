@@ -88,3 +88,9 @@ $$
 - If $y=0$, the contribution is $1-p$.
 
 Likelihood is the probability the model assigned to the class that actually occured.
+
+## Converting an Adaline implementation into an algorithm for logistic regression.
+Adaline classifier can be turned into a working Logistic Regression classifier by changing just two things:
+1. Activation function: from identity to sigmoid function
+2. Loss function: from sum of squared errors to logistic loss
+Everything else remains the same.
