@@ -52,32 +52,40 @@
   $$logit(p)=\mathbf{w}^T\mathbf{x}+b$$
 
 ### Logistic Sigmoid Function
-- The inverse of the logit function is called the logistic sigmoid function.
-- It has a characteristic S-shape:
+The inverse of the logit function is called the logistic sigmoid function.
+It has a characteristic S-shape:
 
-  $$\sigma(z)=\frac{1}{1+\e^(-z)}$$
+$$
+\sigma(z) = \frac{1}{1 + e^{-z}}
+$$
 
-- Here, $z$ is the net input.
+Here, $z$ is the net input.
+The sigmoid function transforms real-number inputs into values in the range $ [0,1] $.
+At $z=0$:
 
-- The sigmoid function transforms real-number inputs into values in the range $[0,1]$.
+$$
+\sigma(0) = 0.5
+$$
 
-- At $z=0$:
+The output of the sigmoid function is interpreted as the probability
+that an example belongs to class 1:
 
-  $$\sigma(0)=0.5$$
+$$
+\sigma(z) = P(y=1 \mid \mathbf{x})
+$$
 
-- The output of the sigmoid function is interpreted as the probability that an example belongs to class 1:
+### Likelihood
+Likelihood measures how well the model's predicted probabilities fit
+the actual training labels.
+Let $ y $ be the actual label (0 or 1), and $p$ be the predicted
+probability of class 1. The likelihood contribution is:
 
-  $$\sigma(z)=P(y=1|\mathbf{x})$$
-- Logistic Regression has wide applications in the field of medicine. It is also used in weather forecasting.
-- ## Learning the model weight via the Logistic loss function.
-- ### Likelihood
-- Likelihood measures how well the model's current predicted probabilities fit the actual training labels. For example, let (y) be the actual label(0 or 1), and (p) be the predicted probability of class 1. Its likelihood contribution is:
-- 
-   $$
--  p^y(1-p)^{1-y}
-   $$
-  - if (y=1), the contribution is (p).
-  - if (y=0), the contribution is (1-p).
-- So the contribution is the probability the model is assigned to the correct class.
-- 
-- 
+$$
+p^y(1-p)^{1-y}
+$$
+
+- If $y=1$, the contribution is $p$.
+- If $y=0$, the contribution is $1-p$.
+
+So, the contribution is the probability the model assigns to the
+correct class.
