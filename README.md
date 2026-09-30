@@ -136,3 +136,28 @@ Real datasets are not perfectly linear separable. So SVM allows some violations,
 ### Role of C
 - Large C $\implies$ strong penalty for violations i.e. tries harder to classify training examples correctly.
 - Small C $\implies$ weak penalty for violations i.e. allows a wider margin.
+
+
+## Solving Non-Linear problems using a Kernel SVM
+
+### Kernel Methods
+- Linear SVM works well when classes can be separated by a straight hyperplane.
+- For non linearly separable data (e.g. XOR), a linear SVM cannot find a suitable decision boundary.
+- Kernel methods creates non linear combinations of the original features to project them onto a higher-dimensional space via a mapping function, $\phi$, where the data becomes linearly separable.
+- Example:
+  $$
+\phi(x_1, x_2) = (x_1, x_2, x_1^2 + x_2^2) $$
+
+### Kernel Trick :
+- Explicitly calculating the high-dimensional mapping $\phi$ can be computationally expensive.
+- Kernel trick allows us to work as if the data were mapped into a higher-dimensional space without explicitly calculating that mapping.
+- Conceptually:
+  $$ K(x_i, x_j) = \phi (x_i)^T \phi(x_j) $$
+
+### RBF Kernel
+- Radial Basis Function is a commonly used kernel for non linear SVM. It allows SVM to create nonlinear decision boundaries.
+
+#### Gamma 
+- $\gamma $ controls the influence of individual training examples in an RBF SVM.
+- Small $\gamma$ $\implies$ broader influence $\implies$ smoother/softer decision boundary.
+- Large $\gamma$ $\implies$ more localised influence $\implies$ potentially more complex decision boundary.
