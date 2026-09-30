@@ -113,10 +113,26 @@ $$ \lambda \sum_{j}|w_{j}| $$
 #### L2 Regularization
 
 $$ \frac{\lambda}{2} \sum_{j} {w_{j}^2} $$
-- Penalises strong weights strongly.
+- Penalises strong weights strongly. Working reducing the model to simpler model.
 - Shrinks them to 0 but does not make them 0.
 
 #### C in Logistic Regression
 - small $C$ $\implies$ strong regularization
-- weak $C$ $\implies$ weak regularization
+- large $C$ $\implies$ weak regularization
 
+## Maximum Margin Classification with Support Vector Machines
+
+### Margin
+The distance between the decision boundary and the closest training examples.
+
+### Support Vectors
+The training examples closest to the decision boundary. They determine the maximum margin boundary.
+
+### SVM
+It finds a decision boundary that maximises the margin between the classes. A larger margin tends to give better generalization , while a smaller margin can be more prone to overfitting.
+#### Soft Margin SVM
+Real datasets are not perfectly linear separable. So SVM allows some violations, allows the slack variables ( the training examples closest to the decision boundary) to lie inside the margin or even be misclassified.
+
+### Role of C
+- Large C $\implies$ strong penalty for violations i.e. tries harder to classify training examples correctly.
+- Small C $\implies$ weak penalty for violations i.e. allows a wider margin.
