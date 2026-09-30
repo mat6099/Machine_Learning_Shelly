@@ -94,3 +94,29 @@ Adaline classifier can be turned into a working Logistic Regression classifier b
 1. Activation function: from identity to sigmoid function
 2. Loss function: from sum of squared errors to logistic loss
 Everything else remains the same.
+
+## Tackling Overfitting via Regularization
+### Overfitting
+- When model performs very well on training data but poorly on test data.
+- Means model has learned training data too closely and does not generalize well.
+- Often associated with model that is too complex.
+### Regularization
+- Technique used to reduce overfitting.
+- Adds a penalty for larger weights to loss function.
+- Encourages a simpler model even though the training loss increases slightly.
+#### L1 Regularization
+
+$$ \lambda \sum_{j}|w_{j}| $$
+- Some weights can become exactly 0.
+- Can therefore perform feature selection since w = 0 for those .
+
+#### L2 Regularization
+
+$$ \frac{\lambda}{2} \sum_{j} {w_{j}^2} $$
+- Penalises strong weights strongly.
+- Shrinks them to 0 but does not make them 0.
+
+#### C in Logistic Regression
+- small $C$ $\implies$ strong regularization
+- weak $C$ $\implies$ weak regularization
+
