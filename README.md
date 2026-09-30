@@ -49,7 +49,7 @@
 
 - In Logistic Regression, we assume a linear relationship between the log-odds and the net input:
 
-  $$logit(p)=\mathbf{w}^T\mathbf{x}+b$$
+  $$logit(p)=\mathbf{w}^T\mathbf{x}+b = z$$ 
 
 ### Logistic Sigmoid Function
 The inverse of the logit function is called the logistic sigmoid function.
@@ -60,7 +60,7 @@ $$
 $$
 
 Here, $z$ is the net input.
-The sigmoid function transforms real-number inputs into values in the range $ [0,1] $.
+The sigmoid function transforms real-number inputs into values in the range $[0,1]$.
 At $z=0$:
 
 $$
@@ -87,5 +87,10 @@ $$
 - If $y=1$, the contribution is $p$.
 - If $y=0$, the contribution is $1-p$.
 
-So, the contribution is the probability the model assigns to the
-correct class.
+Likelihood is the probability the model assigned to the class that actually occured.
+
+## Converting an Adaline implementation into an algorithm for logistic regression.
+Adaline classifier can be turned into a working Logistic Regression classifier by changing just two things:
+1. Activation function: from identity to sigmoid function
+2. Loss function: from sum of squared errors to logistic loss
+Everything else remains the same.
