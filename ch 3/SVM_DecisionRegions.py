@@ -28,7 +28,7 @@ y_combined = np.hstack((y_train, y_test))         #hstack = horizontal stacking 
 
 
 #create an svm classifier
-svm = SVC(kernel = 'linear', C = 1.0, random_state = 1)
+svm = SVC(kernel = 'linear', C = 1.0, random_state = 1)  #svc = support vector classifier, we are calling out the svm clf here. kernel = 'linear' for linear SVM, C = 1.0 is the regularization parameter.
 
 #train the svm
 svm.fit(X_train_std, y_train)
